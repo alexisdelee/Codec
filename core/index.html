@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>CODEC</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="codec.css">
+	</head>
+	<body>
+		<div id="header">
+			<span>CODEC</span>
+			<div onclick="window.close();" id="close">X</div>
+		</div>
+
+		<div id="options">
+			<input type="file" id="uploadKey" class="upload">
+			<label for="uploadKey">Select your key</label>
+			<small id="informations">
+				Algorithm for encryption and decryption based on matrix calculations.
+			</small>
+		</div>
+
+		<div class="encryption decryption unavailable">
+			<input type="file" id="uploadFiles" class="upload" multiple>
+			<label style="height: 150px; line-height: 150px;" for="uploadFiles">Select your files</label>
+			<input type="range" min="5" max="120" value="65" step="1">
+			<span id="buffer"><small>Buffer size</small><br>65 KB</span>
+
+			<div id="files"></div>
+		</div>
+
+		<div id="footer">
+			<div id="method">
+				<a href="#" class="btn encrypt">Encryption</a>
+				<a href="#" class="btn decrypt">Decryption</a>
+			</div>
+			<div id="application" class="unavailable">
+				<a href="#" class="btn return">Back</a>
+				<a href="#" class="btn">Run</a>
+			</div>
+		</div>
+
+		<script type="text/javascript" src="event.js"></script>
+		<script type="text/javascript">
+			const crypto = require("./crypto.js");
+
+			var method = document.querySelector("#method");
+			var methodButtons = method.querySelectorAll(".btn");
+			var application = document.querySelector("#application");
+			var applicationButtons = application.querySelectorAll(".btn");
+			var options = document.querySelector("#options");
+			var containerApplication = document.querySelector(".encryption, .decryption");
+
+			methodButtons[0].addEventListener("click", function(){
+				if(state == 1){
+					options.className += " unavailable";
+					containerApplication.className = containerApplication.className.replace(/unavailable/, "");
+					method.className += " unavailable";
+					application.className = application.className.replace(/unavailable/, "");
+
+					state = 2;
+				}
+			});
+
+			methodButtons[1].addEventListener("click", function(){
+				if(state == 1){
+					options.className += " unavailable";
+					containerApplication.className = containerApplication.className.replace(/unavailable/, "");
+					method.className += " unavailable";
+					application.className = application.className.replace(/unavailable/, "");
+
+					state = 3;
+				}
+			});
+
+			applicationButtons[0].addEventListener("click", function(){
+				location.reload();
+				state = 0;
+			});
+
+			applicationButtons[1].addEventListener("click", function(){
+				if(state == 2.5){
+					files_container.innerHTML = "[start encryption]<br>";
+					crypto.encrypt(key, files_list, parseInt(range.value), files_container, 0);
+				} else if(state == 3.5){
+					files_container.innerHTML = "[start decryption]<br>";
+					crypto.decrypt(key, files_list, parseInt(range.value), files_container, 0);
+				}
+			});
+		</script>
+	</body>
+</html>

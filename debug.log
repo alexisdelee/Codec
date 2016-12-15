@@ -1,0 +1,3 @@
+[0524/150147:ERROR:registration_protocol_win.cc(53)] CreateFile: Le fichier spécifié est introuvable. (0x2)
+[0524/150218:ERROR:registration_protocol_win.cc(53)] CreateFile: Le fichier spécifié est introuvable. (0x2)
+[0524/150237:ERROR:registration_protocol_win.cc(53)] CreateFile: Le fichier spécifié est introuvable. (0x2)
