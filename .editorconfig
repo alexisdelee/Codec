@@ -1,5 +1,5 @@
 root = true
 
-[*.{editorconfig,html,js,css}]
+[*]
 indent_style = tab
 indent_size = 2

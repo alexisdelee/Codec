@@ -1,0 +1,11 @@
+{
+  "name": "codec",
+  "main": "core/index.html",
+  "version": "1.0.0",
+  "window": {
+    "height": 590,
+    "width": 400,
+    "resizable": false,
+    "frame": false
+  }
+}

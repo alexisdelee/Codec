@@ -1,11 +1,20 @@
 {
-  "name": "codec",
-  "main": "core/index.html",
+  "name": "generator",
   "version": "1.0.0",
+  "description": "Key generator",
+  "main": "generating.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Alexis Delée",
+  "license": "ISC",
   "window": {
     "height": 590,
     "width": 400,
     "resizable": false,
     "frame": false
+  },
+  "devDependencies": {
+    "commander": "^2.9.0"
   }
 }
